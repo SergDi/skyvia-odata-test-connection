@@ -9,15 +9,7 @@
         function submit() {
 
             var url = document.getElementById("url").value;
-            var payload = document.getElementById("payload").value;
-            var body = payload
-            fetch(url, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: body,
-            })
+            fetch(url)
             .then((response) => {
                 return response.json();
             })
@@ -56,8 +48,6 @@
 <body>
     <label for="url">Url</label>
     <input type="text" placeholder="Please enter url" id="url">
-    <label for="payload">Payload</label>
-    <textarea id="payload" placeholder="Payload example: { Name: 'test name' } "></textarea>
     <button onclick="submit()">test </button>
 </body>
 </html>
