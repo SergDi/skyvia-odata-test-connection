@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        // JS fetch
+        function submit() {
+
+            var url = document.getElementById("url").value;
+            var payload = document.getElementById("payload").value;
+            var body = payload
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: body,
+            })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+            });
+        }
+    </script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            width: 400px;
+            margin-bottom: 8px;
+        }
+        textarea {
+            width: 400px;
+            margin-bottom: 8px;
+        }
+
+        button {
+            width: 200px;
+        }
+
+        label {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <label for="url">Url</label>
+    <input type="text" placeholder="Please enter url" id="url">
+    <label for="payload">Payload</label>
+    <textarea id="payload" placeholder="Payload example: { Name: 'test name' } "></textarea>
+    <button onclick="submit()">test </button>
+</body>
+</html>
