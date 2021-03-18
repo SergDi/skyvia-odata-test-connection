@@ -15,6 +15,7 @@
             })
             .then((data) => {
                 console.log(data);
+                document.getElementById("text-data").innerHTML = data;
             });
         }
     </script>
@@ -49,5 +50,6 @@
     <label for="url">Url</label>
     <input type="text" placeholder="Please enter url" id="url">
     <button onclick="submit()">test </button>
+    <div id="text-data"> </div>
 </body>
 </html>
