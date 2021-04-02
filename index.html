@@ -11,10 +11,9 @@
             var url = document.getElementById("url").value;
             fetch(url,{
                 method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                mode: 'cors', // no-cors, *cors, same-origin
+                mode: 'no-cors', // no-cors, *cors, same-origin
                 headers: {
                   'Content-Type': 'application/json',
-                  'Origin': '*'
                 }
             })
             .then((response) => {
