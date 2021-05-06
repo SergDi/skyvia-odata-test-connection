@@ -7,21 +7,26 @@
     <script>
         // JS fetch
         function submit() {
-
+            
+            var e = document.getElementById("method");
+            var method = e.options[e.selectedIndex].value;
+            var request = document.getElementById("request").value;
             var url = document.getElementById("url").value;
+            
             fetch(url,{
-                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                method: method, // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, *cors, same-origin
                 headers: {
                   'Content-Type': 'application/json',
-                }
+                },
+                body: JSON.stringify(request)
             })
             .then((response) => {
                 return response.json();
             })
             .then((data) => {
                 console.log(data);
-                 document.getElementById("text-data").innerHTML = data;
+                document.getElementById("text-data").innerHTML = JSON.stringify(data);
             });
         }
     </script>
@@ -55,6 +60,11 @@
 <body>
     <label for="url">Url</label>
     <input type="text" placeholder="Please enter url" id="url">
+    <select id="method">
+      <option value="GET" selected="selected">GET</option>
+      <option value="POST">POST</option>
+    </select>
+    <textarea id="request" rows="6" cols="30"></textarea>
     <button onclick="submit()">test </button>
     <div id="text-data"> </div>
 </body>
